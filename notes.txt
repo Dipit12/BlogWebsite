@@ -1,0 +1,30 @@
+// to install django either install it directly or make a requirements.txt file which
+would contain all the dependencies, and the run that file using
+->  pip install -r requirements.txt
+
+// Creating a Django Project
+1. create an project -> django-admin startproject project_name
+2. Changes in settings.py:
+    -> under STATIC_URL add:  STATIC_ROOT = BASE_DIR / 'static'
+    -> under the ALLOWED_URLS add '.pythonanywhere' & '127.0.0.1' since it would be deployed there
+3. Change/activating the database
+    -> cd projectName
+    -> python manage.py migrate (to create a database)
+
+4. Starting the Webserver
+    -> python manage.py runserver
+5. Django Models
+    A model is a special kind of object that is saved in the Database
+    Creating an application:
+        -> python manage.py startapp app_name
+6. Saving the application in settings.py
+    Under installed_apps add a line: 'app_name'
+7. To add a model to the database, use the following commands:
+        -> python manage.py makemigrations app_name : (here blog)
+        -> python manage.py migrate app_name
+8. To add/edit/delete posts, we would use Django Admin
+    -> from .models import Class_name(here Post)
+    -> admin.site.register(Post)
+9. To access the Django Admin we have to create a superuser, one who has control over everything on the site
+    -> python manage.py createsuperuser
+10. Deploying the website
