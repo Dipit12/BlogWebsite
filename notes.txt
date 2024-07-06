@@ -27,4 +27,28 @@ would contain all the dependencies, and the run that file using
     -> admin.site.register(Post)
 9. To access the Django Admin we have to create a superuser, one who has control over everything on the site
     -> python manage.py createsuperuser
-10. Deploying the website
+10. Deploying the website on pythonanywhere:(not compulsary)
+    -> After making an account, generate the API key and type in the following commands
+    -> pip3.8 install --user pythonanywhere
+    ->pa_autoconfigure_django.py --python=3.8 https://github.com/<your-github-username>/my-first-blog.git
+    -> python manage.py createsuperuser
+11. Adding URLS
+    -> in project/urls.py
+        -> from blog.urls import views
+        -> path('', include('blogs.urls')
+    -> in blog
+        -> create urls.py
+        -> from django.urls import path
+        -> from . import views
+        -> path('',views.home,name = 'home')
+12. Adding views
+    -> def the function:
+        return render(request, 'path to html', {})
+
+        OR
+        return HttpResponse("Content")
+13. Templates
+    -> in your app_folder(here blog) create a dir templates in which create another dir called app_name(here blog) then add the html file
+    -> in settings update the Templates section using, BASE_DIR / 'templates'
+14. Django ORM and QuerySets
+
